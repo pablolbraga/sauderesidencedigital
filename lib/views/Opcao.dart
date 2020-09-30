@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sauderesidencedigital/views/Agenda.dart';
 
 class Opcao extends StatefulWidget {
   @override
@@ -7,7 +8,9 @@ class Opcao extends StatefulWidget {
 
 class _OpcaoState extends State<Opcao> {
   void _abrirAgenda(){
-
+    setState(() {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Agenda()));
+    });
   }
 
   void _abrirRelatorios(){
