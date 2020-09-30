@@ -1,4 +1,5 @@
 import 'package:sauderesidencedigital/models/AgendaModel.dart';
+import 'package:sauderesidencedigital/models/FichaTerapiaModel.dart';
 import 'package:sauderesidencedigital/models/UsuarioModel.dart';
 
 class VariaveisGlobais{
@@ -6,4 +7,5 @@ class VariaveisGlobais{
 
   static UsuarioModel dadosUsuario;
   static AgendaModel dadosAgenda;
+  static FichaTerapiaModel dadosFichaTerapia;
 }
