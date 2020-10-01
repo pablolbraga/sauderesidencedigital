@@ -1,4 +1,5 @@
 import 'package:sauderesidencedigital/models/AgendaModel.dart';
+import 'package:sauderesidencedigital/models/FichaNutricaoModel.dart';
 import 'package:sauderesidencedigital/models/FichaTerapiaModel.dart';
 import 'package:sauderesidencedigital/models/UsuarioModel.dart';
 
@@ -8,6 +9,7 @@ class VariaveisGlobais{
   static UsuarioModel dadosUsuario;
   static AgendaModel dadosAgenda;
   static FichaTerapiaModel dadosFichaTerapia;
+  static FichaNutricaoModel dadosFichaNutricao;
 
   static String tipoFicha;
   static String latitude;

@@ -70,6 +70,11 @@ class _AssinaturaProfissionalState extends State<AssinaturaProfissional> {
         dados = VariaveisGlobais.dadosFichaTerapia.toJson();
         url = VariaveisGlobais.linkBasico + "/addfichaterapia";
       }
+      else if (VariaveisGlobais.tipoFicha == "NUT"){
+        VariaveisGlobais.dadosFichaNutricao.datafim = datafim;
+        dados = VariaveisGlobais.dadosFichaNutricao.toJson();
+        url = VariaveisGlobais.linkBasico + "/addfichanutricao";
+      }
 
       http.Response response = await http.post(Uri.encodeFull(url), body: json.encode(dados), headers: headers);
       if (response.statusCode == 200){
@@ -132,6 +137,9 @@ class _AssinaturaProfissionalState extends State<AssinaturaProfissional> {
                           var data = await _controller.toPngBytes();
                           if (VariaveisGlobais.tipoFicha == "TER"){
                             VariaveisGlobais.dadosFichaTerapia.assinaturaprofissional = base64Encode(data);
+                          }
+                          else if (VariaveisGlobais.tipoFicha == "NUT"){
+                            VariaveisGlobais.dadosFichaNutricao.assinatura_prof = base64Encode(data);
                           }
                           _validaAssinatura();
                         }

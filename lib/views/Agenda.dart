@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:sauderesidencedigital/controllers/AgendaController.dart';
 import 'package:sauderesidencedigital/helpers/VariaveisGlobais.dart';
 import 'package:sauderesidencedigital/models/AgendaModel.dart';
+import 'package:sauderesidencedigital/views/FichaNutricao.dart';
 import 'package:sauderesidencedigital/views/FichaTerapia.dart';
 import 'package:sauderesidencedigital/views/Opcao.dart';
 
@@ -94,10 +95,13 @@ class _AgendaState extends State<Agenda> {
                           VariaveisGlobais.latitude = _currentPosition.latitude.toString();
                           VariaveisGlobais.longitude = _currentPosition.longitude.toString();
                           setState(() {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FichaTerapia()));
+                            if (VariaveisGlobais.dadosUsuario.especialidade == 122633){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => FichaNutricao()));
+                            }
+                            else{
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => FichaTerapia()));
+                            }
+
                           });
                         },
                         child: Padding(
