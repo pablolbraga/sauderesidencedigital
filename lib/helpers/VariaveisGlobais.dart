@@ -8,4 +8,6 @@ class VariaveisGlobais{
   static UsuarioModel dadosUsuario;
   static AgendaModel dadosAgenda;
   static FichaTerapiaModel dadosFichaTerapia;
+
+  static String tipoFicha;
 }

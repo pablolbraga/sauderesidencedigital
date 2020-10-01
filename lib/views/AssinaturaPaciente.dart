@@ -11,6 +11,25 @@ class AssinaturaPaciente extends StatefulWidget {
 }
 
 class _AssinaturaPacienteState extends State<AssinaturaPaciente> {
+  String _mensagemErro = "";
+
+  void _validaAssinatura(){
+    if (_controller.isEmpty){
+      setState(() {
+        _mensagemErro = "Assinatura não informada.";
+      });
+    } else {
+      setState(() {
+        _mensagemErro = "";
+      });
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  AssinaturaProfissional()));
+    }
+  }
+
   final SignatureController _controller = SignatureController(
     penStrokeWidth: 5,
     penColor: Colors.red,
@@ -51,13 +70,10 @@ class _AssinaturaPacienteState extends State<AssinaturaPaciente> {
                       onPressed: () async {
                         if (_controller.isNotEmpty) {
                           var data = await _controller.toPngBytes();
-                          VariaveisGlobais.dadosFichaTerapia
-                              .assinaturapaciente = base64Encode(data);
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      AssinaturaProfissional()));
+                          if (VariaveisGlobais.tipoFicha == "TER") {
+                            VariaveisGlobais.dadosFichaTerapia.assinaturapaciente = base64Encode(data);
+                          }
+                          _validaAssinatura();
                         }
                       }),
                   IconButton(
@@ -69,6 +85,15 @@ class _AssinaturaPacienteState extends State<AssinaturaPaciente> {
                         });
                       })
                 ]),
+          ),
+          Center(
+              child: Text(
+                _mensagemErro,
+                style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20
+                ),
+              )
           )
         ]));
   }

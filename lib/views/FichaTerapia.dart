@@ -59,6 +59,7 @@ class _FichaTerapiaState extends State<FichaTerapia> {
     ft.numeroregistro = VariaveisGlobais.dadosAgenda.registroprofissional;
     ft.idprofagenda = VariaveisGlobais.dadosAgenda.idprofagenda;
     setState(() {
+      VariaveisGlobais.tipoFicha = "TER";
       VariaveisGlobais.dadosFichaTerapia = ft;
       Navigator.push(context, MaterialPageRoute(builder: (context) => AssinaturaPaciente()));
     });
