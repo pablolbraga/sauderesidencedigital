@@ -11,7 +11,7 @@ class AssinaturaPaciente extends StatefulWidget {
 }
 
 class _AssinaturaPacienteState extends State<AssinaturaPaciente> {
-  String _mensagemErro = "";
+  String _mensagemErro = "Mensagem de Erro";
 
   void _validaAssinatura(){
     if (_controller.isEmpty){
@@ -86,14 +86,16 @@ class _AssinaturaPacienteState extends State<AssinaturaPaciente> {
                       })
                 ]),
           ),
-          Center(
-              child: Text(
-                _mensagemErro,
-                style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 20
-                ),
-              )
+          Container(
+            child: Center(
+                child: Text(
+                  _mensagemErro,
+                  style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 20
+                  ),
+                )
+            ),
           )
         ]));
   }

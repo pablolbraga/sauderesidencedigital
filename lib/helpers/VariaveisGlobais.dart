@@ -10,4 +10,6 @@ class VariaveisGlobais{
   static FichaTerapiaModel dadosFichaTerapia;
 
   static String tipoFicha;
+  static String latitude;
+  static String longitude;
 }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:sauderesidencedigital/controllers/AgendaController.dart';
 import 'package:sauderesidencedigital/helpers/VariaveisGlobais.dart';
 import 'package:sauderesidencedigital/models/AgendaModel.dart';
@@ -14,6 +15,8 @@ class Agenda extends StatefulWidget {
 
 class _AgendaState extends State<Agenda> {
   var agendas = new List<AgendaModel>();
+  Position _currentPosition;
+  String _mensagemErro = "";
 
   _listarAgenda() {
     AgendaController.listarAgendaProfissional(
@@ -50,8 +53,24 @@ class _AgendaState extends State<Agenda> {
     await Future.delayed(Duration(seconds: 2), () => _listarAgenda());
   }
 
+  _getCurrentLocation() {
+    final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
+    geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      setState(() {
+        _currentPosition = position;
+      });
+    }).catchError((e) {
+      setState(() {
+        _mensagemErro = "NÃO ENCONTRADO A LOCALIZAÇÃO";
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    _getCurrentLocation();
     return WillPopScope(
         onWillPop: _onBackPressed,
         child: Scaffold(
@@ -72,6 +91,8 @@ class _AgendaState extends State<Agenda> {
                       child: InkWell(
                         onTap: () {
                           VariaveisGlobais.dadosAgenda = agendas[index];
+                          VariaveisGlobais.latitude = _currentPosition.latitude.toString();
+                          VariaveisGlobais.longitude = _currentPosition.longitude.toString();
                           setState(() {
                             Navigator.push(
                                 context,

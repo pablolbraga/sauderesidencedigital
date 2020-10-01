@@ -58,6 +58,8 @@ class _FichaTerapiaState extends State<FichaTerapia> {
     ft.nmespecialidade = VariaveisGlobais.dadosUsuario.nmespecialidade;
     ft.numeroregistro = VariaveisGlobais.dadosAgenda.registroprofissional;
     ft.idprofagenda = VariaveisGlobais.dadosAgenda.idprofagenda;
+    ft.latitude = VariaveisGlobais.latitude;
+    ft.longitude = VariaveisGlobais.longitude;
     setState(() {
       VariaveisGlobais.tipoFicha = "TER";
       VariaveisGlobais.dadosFichaTerapia = ft;
