@@ -41,5 +41,13 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>Este aplicativo precisa de acesso ao local quando aberto.</string>
+
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Este aplicativo precisa acessar a localização em segundo plano.</string>
+
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Este aplicativo precisa acessar a localização quando aberto e em segundo plano.</string>
 </dict>
 </plist>
