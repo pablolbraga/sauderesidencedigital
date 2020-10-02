@@ -6,6 +6,7 @@ import 'package:sauderesidencedigital/controllers/AgendaController.dart';
 import 'package:sauderesidencedigital/helpers/VariaveisGlobais.dart';
 import 'package:sauderesidencedigital/models/AgendaModel.dart';
 import 'package:sauderesidencedigital/views/FichaNutricao.dart';
+import 'package:sauderesidencedigital/views/FichaPsicologia.dart';
 import 'package:sauderesidencedigital/views/FichaTerapia.dart';
 import 'package:sauderesidencedigital/views/Opcao.dart';
 
@@ -97,6 +98,9 @@ class _AgendaState extends State<Agenda> {
                           setState(() {
                             if (VariaveisGlobais.dadosUsuario.especialidade == 122633){
                               Navigator.push(context, MaterialPageRoute(builder: (context) => FichaNutricao()));
+                            }
+                            else if (VariaveisGlobais.dadosUsuario.especialidade == 123931){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => FichaPsicologia()));
                             }
                             else{
                               Navigator.push(context, MaterialPageRoute(builder: (context) => FichaTerapia()));

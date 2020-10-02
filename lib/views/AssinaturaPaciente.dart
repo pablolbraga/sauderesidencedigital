@@ -76,6 +76,9 @@ class _AssinaturaPacienteState extends State<AssinaturaPaciente> {
                           else if (VariaveisGlobais.tipoFicha == "NUT") {
                             VariaveisGlobais.dadosFichaNutricao.assinatura_pac = base64Encode(data);
                           }
+                          else if (VariaveisGlobais.tipoFicha == "PSI") {
+                            VariaveisGlobais.dadosFichaPsicologia.assinaturapaciente = base64Encode(data);
+                          }
                           _validaAssinatura();
                         }
                       }),

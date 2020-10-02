@@ -75,6 +75,11 @@ class _AssinaturaProfissionalState extends State<AssinaturaProfissional> {
         dados = VariaveisGlobais.dadosFichaNutricao.toJson();
         url = VariaveisGlobais.linkBasico + "/addfichanutricao";
       }
+      else if (VariaveisGlobais.tipoFicha == "PSI"){
+        VariaveisGlobais.dadosFichaPsicologia.datahorafim = datafim;
+        dados = VariaveisGlobais.dadosFichaPsicologia.toJson();
+        url = VariaveisGlobais.linkBasico + "/addfichapsicologia";
+      }
 
       http.Response response = await http.post(Uri.encodeFull(url), body: json.encode(dados), headers: headers);
       if (response.statusCode == 200){
@@ -141,6 +146,10 @@ class _AssinaturaProfissionalState extends State<AssinaturaProfissional> {
                           else if (VariaveisGlobais.tipoFicha == "NUT"){
                             VariaveisGlobais.dadosFichaNutricao.assinatura_prof = base64Encode(data);
                           }
+                          else if (VariaveisGlobais.tipoFicha == "PSI"){
+                            VariaveisGlobais.dadosFichaPsicologia.assinaturaprofissional = base64Encode(data);
+                          }
+
                           _validaAssinatura();
                         }
                       }),
