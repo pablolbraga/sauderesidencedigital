@@ -6,6 +6,7 @@ import 'package:sauderesidencedigital/models/UsuarioModel.dart';
 
 class VariaveisGlobais{
   static String linkBasico = 'http://35.199.34.23/SaudeResidenceWebService/srhcws';
+  static String linkExterno = "http://200.150.138.34:8001/sauderesidence/intranet/";
 
   static UsuarioModel dadosUsuario;
   static AgendaModel dadosAgenda;
@@ -16,4 +17,7 @@ class VariaveisGlobais{
   static String tipoFicha;
   static String latitude;
   static String longitude;
+
+  static String datainicial;
+  static String datafinal;
 }

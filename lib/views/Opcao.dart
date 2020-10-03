@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sauderesidencedigital/views/Agenda.dart';
 import 'package:sauderesidencedigital/views/Login.dart';
+import 'package:sauderesidencedigital/views/OpcaoRelatorios.dart';
 
 class Opcao extends StatefulWidget {
   @override
@@ -15,7 +16,12 @@ class _OpcaoState extends State<Opcao> {
     });
   }
 
-  void _abrirRelatorios() {}
+  void _abrirRelatorios() {
+    setState(() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => OpcaoRelatorios()));
+    });
+  }
 
   Future<bool> _onBackPressed() {
     Navigator.push(
