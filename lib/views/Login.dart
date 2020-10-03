@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sauderesidencedigital/controllers/UsuarioController.dart';
 import 'package:sauderesidencedigital/helpers/VariaveisGlobais.dart';
 import 'package:sauderesidencedigital/models/UsuarioModel.dart';
+import 'package:sauderesidencedigital/views/EsqueceuSenha.dart';
 import 'package:sauderesidencedigital/views/Opcao.dart';
 
 class Login extends StatefulWidget {
@@ -150,7 +151,12 @@ class _LoginState extends State<Login> {
                         "Esqueceu a senha? Clique aqui",
                         style: TextStyle(color: Colors.blue),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => EsqueceuSenha()));
+                        });
+                      },
                     ),
                   ),
                   Center(
