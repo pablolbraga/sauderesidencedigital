@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sauderesidencedigital/controllers/UsuarioController.dart';
 import 'package:sauderesidencedigital/helpers/VariaveisGlobais.dart';
 import 'package:sauderesidencedigital/models/UsuarioModel.dart';
+import 'package:sauderesidencedigital/views/AlterarSenhaPrimeiroAcesso.dart';
 import 'package:sauderesidencedigital/views/EsqueceuSenha.dart';
 import 'package:sauderesidencedigital/views/Opcao.dart';
 
@@ -55,10 +56,17 @@ class _LoginState extends State<Login> {
       usuarios = lista.map((model) => UsuarioModel.fromJson(model)).toList();
       if (usuarios.length > 0) {
         VariaveisGlobais.dadosUsuario = usuarios[0];
-        setState(() {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Opcao()));
-        });
+        if (usuarios[0].primeiroacesso == "S"){
+          setState(() {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => AlterarSenhaPrimeiroAcesso()));
+          });
+        } else {
+          setState(() {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Opcao()));
+          });
+        }
       } else {
         setState(() {
           _mensagemErro = "Login e/ou senha incorreto(s)";

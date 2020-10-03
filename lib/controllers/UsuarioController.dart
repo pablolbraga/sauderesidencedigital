@@ -16,4 +16,9 @@ class UsuarioController{
     return await http.get(url);
   }
 
+  static Future alterarSenha(int codigo, String senha) async {
+    var url = VariaveisGlobais.linkBasico + "/AlterarSenha/" + codigo.toString() + "/" + senha;
+    return await http.get(url);
+  }
+
 }
